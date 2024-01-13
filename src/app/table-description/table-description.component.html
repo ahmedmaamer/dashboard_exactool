@@ -1,0 +1,17 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input
+                formControlName="userName"
+                type="text"
+                matInput
+                placeholder="insert your username"
+                required
+                name="Username"
+            />
+        </mat-form-field>
+    </div>
+
+    <button mat-button type="submit">Save</button>
+</form>

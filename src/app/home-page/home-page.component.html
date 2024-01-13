@@ -1,0 +1,54 @@
+<div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
+    <div class="w-full max-w-screen-xl mx-auto">
+        <!-- Tabs -->
+        <mat-tab-group
+            class="sm:px-2"
+            mat-stretch-tabs="false"
+            [animationDuration]="'0'"
+        >
+            <!-- Project Description -->
+            <mat-tab label="Project Description">
+                <ng-template matTabContent>
+                    <div role="tabpanel" class="tab-pane fade" id="module1">
+                        <app-table-description></app-table-description>
+                    </div>
+                </ng-template>
+            </mat-tab>
+
+            <!-- Land Use Changes -->
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <span class="inline-flex items-center space-x-2">
+                        <span class="">Land Use Changes</span>
+                    </span>
+                </ng-template>
+                <ng-template matTabContent>
+                    <app-land-use-changes></app-land-use-changes>
+                </ng-template>
+            </mat-tab>
+
+            <!-- Grassland and Livestock -->
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <span class="inline-flex items-center space-x-2">
+                        <span class="">Grassland and Livestock</span>
+                    </span>
+                </ng-template>
+                <ng-template matTabContent>
+                    <app-table-grassland></app-table-grassland>
+                </ng-template>
+            </mat-tab>
+            <!-- Forest Management -->
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <span class="inline-flex items-center space-x-2">
+                        <span class="">Forest Management</span>
+                    </span>
+                </ng-template>
+                <ng-template matTabContent>
+                    <app-forest-managment></app-forest-managment>
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

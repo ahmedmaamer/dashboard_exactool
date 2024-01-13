@@ -1,0 +1,263 @@
+<mat-stepper #stepper>
+  <mat-step label="Type of vegetation">
+    <form #form1="ngForm">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field appearance="fill" style="width: 450px;">
+            <mat-label>Climate</mat-label>
+            <mat-select matNativeControl placeholder="Please Select" require name="climate" [(ngModel)]="climate">
+              <mat-option value="Tropical">Tropical</mat-option>
+              <mat-option value="Warm temperate">Warm temperate</mat-option>
+              <mat-option value="Cool temperate">Cool temperate</mat-option>
+              <mat-option value="Boreal">Boreal</mat-option>
+              <mat-option value="Tropical montane">Tropical montane</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="fill" style="width: 450px;">
+            <mat-label>Type of vegetation that will be deforested</mat-label>
+            <div>{{climate}}-</div>
+            <mat-select matNativeControl placeholder="Please Select" name="selectedVegetation"
+              [(ngModel)]="selectedVegetation">
+
+              <mat-option value="tropical_montane" *ngIf="climate == 'Tropical'">Tropical Montane</mat-option>
+              <mat-option value="tropical_moist_deciduous_forest" *ngIf="climate == 'Tropical'">Tropical Moist Deciduous Forest</mat-option>
+              <mat-option value="tropical_dry_forest" *ngIf="climate == 'Tropical'">Tropical Dry Forest</mat-option>
+              <mat-option value="tropical_shrubland" *ngIf="climate == 'Tropical'">Tropical Shrubland</mat-option>
+              <mat-option value="planted_tropical_rainforest" *ngIf="climate == 'Tropical'">Planted Tropical Rainforest</mat-option>
+              <mat-option value="planted_tropical_moist_deciduous_forest" *ngIf="climate == 'Tropical'">Planted Tropical Moist Deciduous Forest</mat-option>
+              <mat-option value="planted_tropical_dry_forest" *ngIf="climate == 'Tropical'">Planted Tropical Dry Forest</mat-option>
+              <mat-option value="planted_tropical_shrubland" *ngIf="climate == 'Tropical'">Planted Tropical Shrubland</mat-option>
+
+              <mat-option value="subtropical_humid_forest" *ngIf="climate == 'Warm temperate'">Subtropical Humid Forest</mat-option>
+              <mat-option value="subtropical_dry_forest" *ngIf="climate == 'Warm temperate'">Subtropical Dry Forest</mat-option>
+              <mat-option value="subtropical_steppe" *ngIf="climate == 'Warm temperate'">Subtropical Steppe</mat-option>
+              <mat-option value="subtropical_mountain_systems" *ngIf="climate == 'Warm temperate'">Subtropical Mountain Systems</mat-option>
+              <mat-option value="planted_subtropical_humid_forest" *ngIf="climate == 'Warm temperate'">Planted Subtropical Humid Forest</mat-option>
+              <mat-option value="planted_subtropical_dry_forest" *ngIf="climate == 'Warm temperate'">Planted Subtropical Dry Forest</mat-option>
+              <mat-option value="planted_subtropical_steppe" *ngIf="climate == 'Warm temperate'">Planted Subtropical Steppe</mat-option>
+              <mat-option value="planted_subtropical_mountain_systems" *ngIf="climate == 'Warm temperate'">Planted Subtropical Mountain Systems</mat-option>
+
+              <mat-option value="temperate_oceanic_forest" *ngIf="climate == 'Cool temperate'">Temperate Oceanic Forest</mat-option>
+              <mat-option value="temperate_continental_forest" *ngIf="climate == 'Cool temperate'">Temperate Continental Forest</mat-option>
+              <mat-option value="temperate_mountain_systems" *ngIf="climate == 'Cool temperate'">Temperate Mountain Systems</mat-option>
+              <mat-option value="temperate_desert" *ngIf="climate == 'Cool temperate'">Temperate Desert</mat-option>
+              <mat-option value="temperate_steppe" *ngIf="climate == 'Cool temperate'">Temperate Steppe</mat-option>
+              <mat-option value="planted_temperate_oceanic_forest" *ngIf="climate == 'Cool temperate'">Planted Temperate Oceanic Forest</mat-option>
+              <mat-option value="planted_temperate_continental_forest" *ngIf="climate == 'Cool temperate'">Planted Temperate Continental Forest</mat-option>
+              <mat-option value="planted_temperate_mountain_systems" *ngIf="climate == 'Cool temperate'">Planted Temperate Mountain Systems</mat-option>
+
+              <mat-option value="boreal_coniferous_forest" *ngIf="climate == 'Boreal'">Boreal Coniferous Forest</mat-option>
+              <mat-option value="boreal_tundra_woodland" *ngIf="climate == 'Boreal'">Boreal Tundra Woodland</mat-option>
+              <mat-option value="boreal_mountain_systems" *ngIf="climate == 'Boreal'">Boreal Mountain Systems</mat-option>
+              <mat-option value="planted_boreal_coniferous_forest" *ngIf="climate == 'Boreal'">Planted Boreal Coniferous Forest</mat-option>
+              <mat-option value="planted_boreal_tundra_woodland" *ngIf="climate == 'Boreal'">Planted Boreal Tundra Woodland</mat-option>
+              <mat-option value="planted_boreal_mountain_systems" *ngIf="climate == 'Boreal'">Planted Boreal Mountain Systems</mat-option>
+
+              <mat-option value="tropical_mountain_systems" *ngIf="climate == 'Tropical montane'">Tropical Mountain Systems</mat-option>
+              <mat-option value="planted_tropical_mountain_systems" *ngIf="climate == 'Tropical montane'">Planted Tropical Mountain Systems</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="fill" style="width: 450px;">
+            <mat-label>HWPs</mat-label>
+            <input matInput type="number" name="hwps" required value="0" required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6" s>
+          <mat-form-field appearance="fill" style="width: 450px;">
+            <mat-label>Fire used?</mat-label>
+            <mat-select matNativeControl placeholder="Please Select">
+              <mat-option value="Yes">Yes</mat-option>
+              <mat-option value="No">No</mat-option>
+
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div style="margin-top: 10px;" class="col-md-12">
+
+        <button mat-button matStepperNext mat-raised-button color="primary" [disabled]="!climate || !selectedVegetation"
+          (click)="calcul()"
+          style="font-size: 12px !important; padding: 4px 8px !important; width: 100px; ">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step label="Final land-use after deforestaion">
+    <form>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Land-use type</mat-label>
+          <mat-select matNativeControl placeholder="Please Select">
+            <mat-option>Agroforestry</mat-option>
+            <mat-option>Annual cropland</mat-option>
+            <mat-option>Annual fallow</mat-option>
+            <mat-option>Degraded land</mat-option>
+            <mat-option>Flooded rice</mat-option>
+            <mat-option>Grassland</mat-option>
+            <mat-option>Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Agroforestry system</mat-label>
+          <mat-select matNativeControl placeholder="Please Select">
+            <mat-option>Hedgerow</mat-option>
+            <mat-option>Olive</mat-option>
+            <mat-option>Orchard</mat-option>
+            <mat-option>Short Rotation Coppice</mat-option>
+            <mat-option>Silvopasture</mat-option>
+            <mat-option>Tea</mat-option>
+            <mat-option>Vine</mat-option>
+            <mat-option>Agroforestry - default</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div style="margin-top: 10px;">
+        <button mat-button matStepperPrevious mat-raised-button color="warn"
+          style="font-size: 12px !important; padding: 4px 8px !important; width: 100px;">Back</button>
+        <button mat-button matStepperNext mat-raised-button color="primary" (click)="calcul()"
+          style="font-size: 12px !important; padding: 4px 8px !important; width: 100px; margin-left: 10px;">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step label="Forested area (ha)">
+
+    <form>
+      <div class="card" style="padding: 10px;">
+        <div class="row">
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>Start</mat-label>
+              <input matInput type="number" [(ngModel)]="start" name="start" value="0" required />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>Without</mat-label>
+              <input matInput type="number" [(ngModel)]="without" name="without" value="0" required />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>With</mat-label>
+              <input matInput type="number" [(ngModel)]="with" name="with" value="0" required />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>Start</mat-label>
+              <input matInput type="number" [(ngModel)]="start2" name="start" value="0" required />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>Without</mat-label>
+              <input matInput type="number" [(ngModel)]="without2" name="without" value="0" required />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>With</mat-label>
+              <input matInput type="number" [(ngModel)]="with2" name="with" value="0" required />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>Start</mat-label>
+              <input matInput type="number" [(ngModel)]="start3" name="start" value="0" required />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>Without</mat-label>
+              <input matInput type="number" [(ngModel)]="without3" name="without" value="0" required />
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field appearance="fill" style="width: 200px;">
+              <mat-label>With</mat-label>
+              <input matInput type="number" [(ngModel)]="with3" name="with" value="0" required />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 10px;">
+        <button mat-button matStepperPrevious mat-raised-button color="warn"
+          style="font-size: 12px !important; padding: 4px 8px !important; width: 100px;">Back</button>
+        <button mat-button matStepperNext mat-raised-button  [disabled]="!start || !without || !with" (click)="calcul()"
+          style="font-size: 12px !important; padding: 4px 8px !important; width: 100px; margin-left: 10px; background-color: green; color: white;">save</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step label="Result">
+    <table class="table">
+      <thead class="table-success">
+        <tr>
+          <th colspan="2">
+            Forested area (ha)
+          </th>
+          <th colspan="2">
+            Total emissions (tCO2-e)
+          </th>
+          <th rowspan="2">
+            Balance
+          </th>
+        </tr>
+        <tr>
+
+          <th>Without</th>
+          <th>With</th>
+          <th>Without</th>
+          <th>With</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{withoutResult}}</td>
+          <td>{{withResult}}</td>
+          <td>{{withoutResultTotal}}</td>
+          <td>{{withResultTotal}}</td>
+          <td style="color: forestgreen;">{{withoutResultTotal - withResultTotal}}</td>
+        </tr>
+        <tr>
+          <td>{{withoutResult2}}</td>
+          <td>{{withResult2}}</td>
+          <td>{{withoutResultTotal2}}</td>
+          <td>{{withResultTotal2}}</td>
+          <td style="color: forestgreen;">{{withoutResultTotal2 - withResultTotal2}}</td>
+        </tr>
+        <tr>
+          <td>{{withoutResult3}}</td>
+          <td>{{withResult3}}</td>
+          <td>{{withoutResultTotal3}}</td>
+          <td>{{withResultTotal3}}</td>
+          <td style="color: forestgreen;">{{withoutResultTotal3 - withResultTotal3}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+    <div style="margin-top: 10px;">
+      <button mat-button matStepperPrevious mat-raised-button color="warn"
+        style="font-size: 12px !important; padding: 4px 8px !important; width: 100px;">Back</button>
+      <button mat-button matStepperNext mat-raised-button color="primary" (click)="calcul()"
+        style="font-size: 12px !important; padding: 4px 8px !important; width: 100px; margin-left: 10px;">Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Chart">
+    <ng-template matStepLabel>Chart</ng-template>
+    <app-chart></app-chart>
+  </mat-step>
+
+</mat-stepper>

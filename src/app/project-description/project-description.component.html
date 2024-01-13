@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+      </head>
+      <body>
+        
+        <div class="nav nav-tabs agriculture-pills">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <br />
+              
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a href="#module1" class="nav-link" role="tab" data-toggle="tab" style="padding: 20px;">Project Description</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#module2" class="nav-link" role="tab" data-toggle="tab" style="padding: 20px;">Land Use Changes</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#module4" class="nav-link" role="tab" data-toggle="tab" style="padding: 20px;">Grassland and Livestock</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#module5" class="nav-link" role="tab" data-toggle="tab" style="padding: 20px;">Forest Management</a>
+                </li>
+            
+              </ul>
+      
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade" id="module1">
+                  <app-table-description></app-table-description>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="module2">
+                  <app-land-use-changes></app-land-use-changes>
+                  <!-- Add your component related to Land Use Changes here -->
+                </div>
+               
+                <div role="tabpanel" class="tab-pane fade" id="module4">
+                  <h4>Grassland and Livestock</h4>
+                  <!-- Add your component related to Grassland and Livestock here -->
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="module5">
+                  <h4>Forest Management</h4>
+                  <!-- Add your component related to Forest Management here -->
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- jQuery first, then Bootstrap JS. -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+      </body>
+  
